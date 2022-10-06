@@ -8,14 +8,14 @@
 // getRandomNumber(2, 20);
 
 
-function getLengthString(string, maxLength) {
-  if (string.length <= maxLength) {
-    return true;
-  }
-  return false;
-}
+// function getLengthString(string, maxLength) {
+//   if (string.length <= maxLength) {
+//     return true;
+//   }
+//   return false;
+// }
 
-getLengthString('test', 10);
+// getLengthString('test', 10);
 
 function getRandomPositiveInteger (a, b) {
   if (a < 0 || b < 0) {
