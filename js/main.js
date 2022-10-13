@@ -56,3 +56,4 @@ const getPhotoDescription = function(i) {
 
 const galleryPhotos = Array.from({ length: GALLERY_LENGTH }, (v, k) => getPhotoDescription(k));
 galleryPhotos();
+
