@@ -11,6 +11,7 @@ function getRandomPositiveInteger (a, b) {
 function checkStringLength (string, length) {
   return string.length <= length;
 }
+checkStringLength();
 
 // module4-task1
 
@@ -54,3 +55,4 @@ const getPhotoDescription = function(i) {
 };
 
 const galleryPhotos = Array.from({ length: GALLERY_LENGTH }, (v, k) => getPhotoDescription(k));
+galleryPhotos();
