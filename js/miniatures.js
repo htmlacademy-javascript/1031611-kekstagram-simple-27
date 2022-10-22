@@ -12,7 +12,7 @@ const photos = () => {
     pictureElement.querySelector('.picture__comments').textContent = comments;
     similarListFragment.appendChild(pictureElement);
   });
-  similarListElement.appendChild(similarListFragment);
+  return similarListElement.appendChild(similarListFragment);
 };
 photos();
 
