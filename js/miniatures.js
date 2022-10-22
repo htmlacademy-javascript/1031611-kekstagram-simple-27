@@ -12,8 +12,6 @@ const photos = () => {
     pictureElement.querySelector('.picture__comments').textContent = comments;
     similarListFragment.appendChild(pictureElement);
   });
-  return similarListElement.appendChild(similarListFragment);
+  similarListElement.appendChild(similarListFragment);
 };
-photos();
-
 export {photos};
