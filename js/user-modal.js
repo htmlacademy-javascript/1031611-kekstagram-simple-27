@@ -25,7 +25,7 @@ uploadUserPhoto.addEventListener('change', () => {
   openUserModal();
 });
 
-uploadUserPhoto.addEventListener('keydown', (evt) => {
+uploadUserPhoto.addEventListener('change', (evt) => {
   if (isEnterKey(evt)) {
     openUserModal();
   }
