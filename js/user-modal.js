@@ -36,7 +36,6 @@ uploadUserPhoto.addEventListener('change', (evt) => {
 function closeUserModal() {
   modalWindow.classList.add('hidden');
   body.classList.remove('modal-open');
-  // uploadUserPhoto.innerHTML = '';
   document.removeEventListener('keydown', onPopupEscapeDown);
 }
 
