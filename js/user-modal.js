@@ -37,11 +37,14 @@ function closeUserModal() {
   modalWindow.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscapeDown);
+  userCloseModalWindow.removeEventListener('click', closeUserModal);
 }
 
-userCloseModalWindow.addEventListener('click', () => {
-  closeUserModal();
-});
+// userCloseModalWindow.addEventListener('click', () => {
+//   closeUserModal();
+// });
+
+userCloseModalWindow.addEventListener('click', closeUserModal);
 
 userCloseModalWindow.addEventListener('keydown', (evt) => {
   if (isEscapeKey(evt)) {
