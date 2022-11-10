@@ -1,9 +1,7 @@
-import {galleryPhotos} from './data.js';
-
 const similarListElement = document.querySelector('.pictures');
 const similarPictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const photos = () => {
+const photos = (galleryPhotos) => {
   const similarListFragment = document.createDocumentFragment();
   galleryPhotos.forEach(({url, likes, comments}) => {
     const pictureElement = similarPictureTemplate.cloneNode(true);
