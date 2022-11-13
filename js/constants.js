@@ -2,6 +2,11 @@ const GALLERY_LENGTH = 25;
 const MIN_COMMENT_LENGTH = 20;
 const MAX_COMMENT_LENGTH = 140;
 
+const DEFAULT = 100;
+const MIN_SCALE = 25;
+const MAX_SCALE = 100;
+const SCALE_STEP = 25;
+
 const DESCRIPTIONS = [
   'Мои собаки',
   'Солнечная погода',
@@ -30,4 +35,4 @@ const DESCRIPTIONS = [
   'Мой первый обзор на фильм'
 ];
 
-export {GALLERY_LENGTH, DESCRIPTIONS, MIN_COMMENT_LENGTH, MAX_COMMENT_LENGTH};
+export {GALLERY_LENGTH, DESCRIPTIONS, MIN_COMMENT_LENGTH, MAX_COMMENT_LENGTH, DEFAULT, MIN_SCALE, MAX_SCALE, SCALE_STEP};

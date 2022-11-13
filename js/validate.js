@@ -11,6 +11,10 @@ const pristine = new Pristine(form, {
   errorTextClass: 'text__description--error'
 });
 
+const validateDescriptionTextLimit = (value) => value.length < MAX_COMMENT_LENGTH;
+
+pristine.addValidator(form.querySelector('.text__description'), validateDescriptionTextLimit, 'Максиммальная длина 140 символов.');
+
 const validateDescription = (value) => value.length >= MIN_COMMENT_LENGTH && value.length <= MAX_COMMENT_LENGTH;
 
 pristine.addValidator(form.querySelector('.text__description'), validateDescription, 'От 20 до 140 символов.');
