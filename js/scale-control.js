@@ -39,4 +39,4 @@ const onRemoveScale = () => {
 scaleControlSmaller.addEventListener('click', onSmallerButtonClick);
 scaleControlBigger.addEventListener('click', onBiggerButtonClick);
 
-export { onAddScale, onRemoveScale };
+export { onAddScale, onRemoveScale, imgUploadPreviewImg, scaleControl };

@@ -1,5 +1,7 @@
 import { isEscapeKey, isEnterKey } from './until.js';
-import { onAddScale, onRemoveScale } from './scale-control.js';
+import { onAddScale, onRemoveScale, scaleControl } from './scale-control.js';
+import { form, onFormChange, filterReset } from './filters.js';
+import { DEFAULT } from './constants.js';
 
 const uploadUserPhoto = document.querySelector('#upload-file');
 const modalWindow = document.querySelector('.img-upload__overlay');
@@ -18,17 +20,21 @@ function openUserModal() {
   body.classList.add('modal-open');
   document.addEventListener('keydown', onPopupEscapeDown);
   onAddScale();
+  form.addEventListener('change', onFormChange);
+  document.removeEventListener('change', onChange);
 }
 
 uploadUserPhoto.addEventListener('change', () => {
   openUserModal();
 });
 
-uploadUserPhoto.addEventListener('change', (evt) => {
+function onChange(evt) {
   if (isEnterKey(evt)) {
     openUserModal();
   }
-});
+}
+
+uploadUserPhoto.addEventListener('change', onChange);
 
 function closeUserModal() {
   modalWindow.classList.add('hidden');
@@ -36,6 +42,8 @@ function closeUserModal() {
   document.removeEventListener('keydown', onPopupEscapeDown);
   userCloseModalWindow.removeEventListener('click', closeUserModal);
   onRemoveScale();
+  scaleControl.value = `${DEFAULT}%`;
+  filterReset();
 }
 
 userCloseModalWindow.addEventListener('click', () => {
