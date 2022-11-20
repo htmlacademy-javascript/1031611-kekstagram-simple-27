@@ -1,4 +1,7 @@
-import {isEscapeKey, isEnterKey} from './until.js';
+import { isEscapeKey, isEnterKey } from './until.js';
+import { onAddScale, onRemoveScale, scaleControl } from './scale-control.js';
+import { form, onFormChange, filterReset } from './filters.js';
+import { DEFAULT } from './constants.js';
 
 const uploadUserPhoto = document.querySelector('#upload-file');
 const modalWindow = document.querySelector('.img-upload__overlay');
@@ -12,37 +15,40 @@ const onPopupEscapeDown = (evt) => {
   }
 };
 
-
-//функция открытия модального окна
-
 function openUserModal() {
   modalWindow.classList.remove('hidden');
   body.classList.add('modal-open');
   document.addEventListener('keydown', onPopupEscapeDown);
+  onAddScale();
+  form.addEventListener('change', onFormChange);
+  document.removeEventListener('change', onChange);
 }
 
 uploadUserPhoto.addEventListener('change', () => {
   openUserModal();
 });
 
-uploadUserPhoto.addEventListener('change', (evt) => {
+function onChange(evt) {
   if (isEnterKey(evt)) {
     openUserModal();
   }
-});
+}
 
-//функция закрытия модального окна
+uploadUserPhoto.addEventListener('change', onChange);
 
 function closeUserModal() {
   modalWindow.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscapeDown);
   userCloseModalWindow.removeEventListener('click', closeUserModal);
+  onRemoveScale();
+  scaleControl.value = `${DEFAULT}%`;
+  filterReset();
 }
 
-// userCloseModalWindow.addEventListener('click', () => {
-//   closeUserModal();
-// });
+userCloseModalWindow.addEventListener('click', () => {
+  closeUserModal();
+});
 
 userCloseModalWindow.addEventListener('click', closeUserModal);
 
