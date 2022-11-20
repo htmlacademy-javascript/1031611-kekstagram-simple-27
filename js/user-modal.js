@@ -1,6 +1,7 @@
 import { isEscapeKey, isEnterKey } from './until.js';
 import { onAddScale, onRemoveScale, scaleControl } from './scale-control.js';
 import { form, onFormChange, filterReset } from './filters.js';
+import { elementDescription } from './validate.js';
 import { DEFAULT } from './constants.js';
 
 const uploadUserPhoto = document.querySelector('#upload-file');
@@ -41,6 +42,7 @@ function closeUserModal() {
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscapeDown);
   userCloseModalWindow.removeEventListener('click', closeUserModal);
+  elementDescription.value = '';
   onRemoveScale();
   scaleControl.value = `${DEFAULT}%`;
   filterReset();
@@ -57,3 +59,6 @@ userCloseModalWindow.addEventListener('keydown', (evt) => {
     closeUserModal();
   }
 });
+
+export {closeUserModal, openUserModal};
+

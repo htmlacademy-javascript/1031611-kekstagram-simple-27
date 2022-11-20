@@ -108,7 +108,7 @@ const onSliderUpdate = () => {
   }
   const sliderValue = sliderElement.noUiSlider.get();
   imgUploadPreviewImg.style.filter = `${chosenEffect.style}(${sliderValue}${chosenEffect.unit})`;
-  imgUploadPreviewImg.classList.add(`effects__previw--${chosenEffect.name}`);
+  imgUploadPreviewImg.classList.add(`effects__preview--${chosenEffect.name}`);
   valueElement.value = sliderValue;
 };
 
