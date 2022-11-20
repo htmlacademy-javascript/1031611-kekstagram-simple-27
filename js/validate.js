@@ -29,28 +29,18 @@ const validateDescription = (value) => value.length >= MIN_COMMENT_LENGTH && val
 
 pristine.addValidator(form.querySelector('.text__description'), validateDescription, 'От 20 до 140 символов.');
 
-// form.addEventListener('submit', (evt) => {
-//   const isValid = pristine.validate();
-//   if (!isValid) {
-//     evt.preventDefault();
-//   }
-// });
-
-//Функция блокировки кнопки отправки формы
 const blockSubmitButton = () => {
   submitButton.disabled = true;
   elementDescription.readOnly = true;
   submitButton.textContent = 'Сохраняю...';
 };
 
-//функция разблокировки кнопки отправки формы
 const unblockSubmitButton = () => {
   submitButton.disabled = false;
   elementDescription.readOnly = false;
   submitButton.textContent = 'Сохранить';
 };
 
-//Функция закрытия окна с сообщением об успешной или ошибочной отправке формы
 const onMessageEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
@@ -58,17 +48,14 @@ const onMessageEscKeydown = (evt) => {
   }
 };
 
-//Функция скрытия сообщения по клику на свободную область
 const onRandomArea = () => {
   hideMessage();
 };
 
-//Функция закрытия сообщения об успешнолй отправке формы по нажатию кнопки
 const onSuccessButtonClick = () => {
   hideMessage();
 };
 
-//Функция закрытия сообщения об ошибке отправки формы по нажатию кнопки
 const onErrorButtonClick = () => {
   hideMessage();
 };
@@ -83,7 +70,6 @@ function hideMessage () {
   body.style.overflow = 'auto';
 }
 
-//Функция генерации сообщения об успешной отправке формы
 const getSuccessMessage = () => {
   const elementSuccessMessage = messageSuccessTemplateElement.cloneNode(true);
   document.addEventListener('keydown', onMessageEscKeydown);
@@ -102,7 +88,6 @@ const getErrorMessage = () => {
   body.style.overflow = 'hidden';
 };
 
-//Функция отправки формы
 const setUserFormSubmit = (onSuccess) => {
   form.addEventListener('submit', onSubmitButton);
   function onSubmitButton (evt) {

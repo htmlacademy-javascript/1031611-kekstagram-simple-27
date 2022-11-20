@@ -1,6 +1,4 @@
-const INPUT_DATA = 'https://27.javascript.pages.academy/kekstagram-simple/data';
-const OUTPUT_DATA = 'https://27.javascript.pages.academy/kekstagram-simple';
-
+import {OUTPUT_DATA, INPUT_DATA} from './constants.js';
 
 const getData = (onSuccess, onError) => {
   fetch (INPUT_DATA)

@@ -102,7 +102,6 @@ const onFormChange = (evt) => {
 const onSliderUpdate = () => {
   imgUploadPreviewImg.style.filter = 'none';
   imgUploadPreviewImg.className = '';
-  valueElement.value = '';
   if (isDefault()) {
     return;
   }

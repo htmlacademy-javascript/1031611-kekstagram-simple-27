@@ -7,6 +7,9 @@ const MIN_SCALE = 25;
 const MAX_SCALE = 100;
 const SCALE_STEP = 25;
 
+const INPUT_DATA = 'https://27.javascript.pages.academy/kekstagram-simple/data';
+const OUTPUT_DATA = 'https://27.javascript.pages.academy/kekstagram-simple';
+
 const DESCRIPTIONS = [
   'Мои собаки',
   'Солнечная погода',
@@ -35,4 +38,4 @@ const DESCRIPTIONS = [
   'Мой первый обзор на фильм'
 ];
 
-export {GALLERY_LENGTH, DESCRIPTIONS, MIN_COMMENT_LENGTH, MAX_COMMENT_LENGTH, DEFAULT, MIN_SCALE, MAX_SCALE, SCALE_STEP};
+export {GALLERY_LENGTH, DESCRIPTIONS, MIN_COMMENT_LENGTH, MAX_COMMENT_LENGTH, DEFAULT, MIN_SCALE, MAX_SCALE, SCALE_STEP, INPUT_DATA, OUTPUT_DATA};
