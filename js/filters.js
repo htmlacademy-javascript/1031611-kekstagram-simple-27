@@ -59,7 +59,6 @@ let chosenEffect = DEFAULT_EFFECT;
 
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
 
-
 noUiSlider.create(sliderElement, {
   range: {
     min: DEFAULT_EFFECT.min,
@@ -102,6 +101,7 @@ const onFormChange = (evt) => {
 const onSliderUpdate = () => {
   imgUploadPreviewImg.style.filter = 'none';
   imgUploadPreviewImg.className = '';
+  valueElement.value = '';
   if (isDefault()) {
     return;
   }
@@ -116,3 +116,22 @@ updateSlider();
 sliderElement.noUiSlider.on('update', onSliderUpdate);
 
 export { form, onFormChange, filterReset };
+
+
+// const fullPhotoElement = document.querySelector('.img-upload__preview img');
+// const effectLevelElement = document.querySelector('.effect-level');
+// const effectsListElement = document.querySelector('.effects__list');
+
+// const onFormChange = (evt) => {
+//   fullPhotoElement.className = 'effects__preview--none';
+//   const target = evt.target.value;
+//   effectLevelElement.classList.remove('hidden');
+//   fullPhotoElement.style.filter = '';
+//   if (target === 'none') {
+//     effectLevelElement.classList.add('hidden');
+//   }
+//   fullPhotoElement.classList.add(`effects__preview--${target}`);// меняется класс
+// };
+// effectsListElement.addEventListener('click', onFormChange);
+
+// export {onFormChange};

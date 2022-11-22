@@ -1,4 +1,4 @@
-import {DEFAULT, MIN_SCALE, MAX_SCALE, SCALE_STEP} from './constants.js';
+import {DEFAULT_SCALE, MIN_SCALE, MAX_SCALE, SCALE_STEP} from './constants.js';
 
 const userModalWindow = document.querySelector('.img-upload__overlay');
 const scaleControlSmaller = document.querySelector('.scale__control--smaller');
@@ -25,7 +25,7 @@ const onBiggerButtonClick = () => {
 };
 
 const onAddScale = () => {
-  scaleControl.value = `${DEFAULT}%`;
+  scaleControl.value = `${DEFAULT_SCALE}%`;
   scaleControlSmaller.addEventListener('click', onSmallerButtonClick);
   scaleControlBigger.addEventListener('click', onBiggerButtonClick);
 };
