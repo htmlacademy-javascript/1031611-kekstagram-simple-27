@@ -6,10 +6,7 @@ const form = document.querySelector('.img-upload__form');
 const submitButton = form.querySelector('.img-upload__submit');
 const elementDescription = form.querySelector('.text__description');
 const body = document.querySelector('body');
-
 const messageSuccessTemplateElement = document.querySelector('#success').content.querySelector('.success');
-const successButton = document.querySelector('#success').content.querySelector('.success__button');
-const errorButton = document.querySelector('#error').content.querySelector('.error__button');
 const messageErrorTemplateElement = document.querySelector('#error').content.querySelector('.error');
 
 const pristine = new Pristine(form, {
@@ -23,11 +20,11 @@ const pristine = new Pristine(form, {
 
 const validateDescriptionTextLimit = (value) => value.length < MAX_COMMENT_LENGTH;
 
-pristine.addValidator(form.querySelector('.text__description'), validateDescriptionTextLimit, 'Максиммальная длина 140 символов.');
+pristine.addValidator(elementDescription, validateDescriptionTextLimit, 'Максиммальная длина 140 символов.');
 
 const validateDescription = (value) => value.length >= MIN_COMMENT_LENGTH && value.length <= MAX_COMMENT_LENGTH;
 
-pristine.addValidator(form.querySelector('.text__description'), validateDescription, 'От 20 до 140 символов.');
+pristine.addValidator(elementDescription, validateDescription, 'От 20 до 140 символов.');
 
 const blockSubmitButton = () => {
   submitButton.disabled = true;
@@ -65,8 +62,8 @@ function hideMessage () {
   messageElement.remove();
   document.removeEventListener('keydown', onMessageEscKeydown);
   document.removeEventListener('click', onRandomArea);
-  successButton.removeEventListener('click', onSuccessButtonClick);
-  errorButton.removeEventListener('click', onErrorButtonClick);
+  messageSuccessTemplateElement.removeEventListener('click', onSuccessButtonClick);
+  messageSuccessTemplateElement.removeEventListener('click', onErrorButtonClick);
   body.style.overflow = 'auto';
 }
 
@@ -74,7 +71,7 @@ const getSuccessMessage = () => {
   const elementSuccessMessage = messageSuccessTemplateElement.cloneNode(true);
   document.addEventListener('keydown', onMessageEscKeydown);
   document.addEventListener('click', onRandomArea);
-  successButton.addEventListener('click', onSuccessButtonClick);
+  messageSuccessTemplateElement.addEventListener('click', onSuccessButtonClick);
   body.append(elementSuccessMessage);
   body.style.overflow = 'hidden';
 };
@@ -83,7 +80,7 @@ const getErrorMessage = () => {
   const elementErrorMessage = messageErrorTemplateElement.cloneNode(true);
   document.addEventListener('keydown', onMessageEscKeydown);
   document.addEventListener('click', onRandomArea);
-  errorButton.addEventListener('click', onErrorButtonClick);
+  messageSuccessTemplateElement.addEventListener('click', onErrorButtonClick);
   body.append(elementErrorMessage);
   body.style.overflow = 'hidden';
 };
