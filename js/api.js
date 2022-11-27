@@ -1,6 +1,7 @@
 import {OUTPUT_DATA, INPUT_DATA} from './constants.js';
+import { showAlert } from './until.js';
 
-const getData = (onSuccess, onError) => {
+const getData = (onSuccess) => {
   fetch (INPUT_DATA)
     .then((response) => {
       if (response.ok) {
@@ -12,7 +13,7 @@ const getData = (onSuccess, onError) => {
       onSuccess(data);
     })
     .catch(() => {
-      onError();
+      showAlert('Ошибка загрузки');
     });
 };
 
