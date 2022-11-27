@@ -3,7 +3,7 @@ const isEnterKey = (evt) => evt.key === 'Enter';
 
 const ALERT_TIME = 5000;
 
-const showAlert = () => {
+const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.style.zIndex = '100';
   alertContainer.style.position = 'absolute';
@@ -16,7 +16,7 @@ const showAlert = () => {
   alertContainer.style.borderBottomRightRadius = '10%';
   alertContainer.style.borderBottomLeftRadius = '10%';
   alertContainer.style.backgroundColor = '#cc6600';
-  alertContainer.textContent = ALERT_TIME;
+  alertContainer.textContent = message;
   document.body.append(alertContainer);
   setTimeout(() => {
     alertContainer.remove();
